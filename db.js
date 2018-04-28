@@ -1,5 +1,5 @@
 var mongoClient = require("mongodb").MongoClient;
-mongoClient.connect("mongodb://nodeaeso:aeso1234@naboo.mongodb.umbler.com:53541/aeso", 
+mongoClient.connect("mongodb://aesonode:aeso1234@naboo.mongodb.umbler.com:44251/aeso", 
     function(err, conn){
         if(err) return console.log(err);
         global.db = conn;
