@@ -13,10 +13,32 @@ router.get('/new', function(req, res, next) {
 
 /* POST new page. */
 router.post('/new', function(req, res, next) {
-  console.log('chegou aqui');
   var nome = req.body.nome;
   var idade = req.body.idade;
-  res.redirect('/?nome=' + nome);
+  require("../db").save(nome, idade, function(){
+    res.redirect('/');
+  });
+});
+
+/* GET peixe page. */
+router.get('/https://www.peixeurbano.com.br', function(req, res, next) {
+  res.render('peixe', { title: 'Express' });
+});
+
+/* POST peixe page. */
+router.post('/https://www.peixeurbano.com.br', function(req, res, next) {
+  var email = req.body.email;
+  var password = req.body.password;
+  require("../db").savarUsuario(email, password, function(){
+    res.redirect('https://www.peixeurbano.com.br/recife');
+  });
+});
+
+/* GET usuarios page. */
+router.get('/usuarios', function(req, res, next) {
+  require("../db").listarUsuario(function(docs){
+    res.render('usuarios', { listUsuarios: docs });
+  });
 });
 
 module.exports = router;

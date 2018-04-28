@@ -1,0 +1,16 @@
+<html>
+    <body>
+        <table border="1px">
+            <tr>
+                <td>Email</td>
+                <td>Senha</td>
+            </tr>           
+            <%for(var i=0; i<listUsuarios.length; i++) {%>
+                <tr>
+                    <td><%=listUsuarios[i].email%></td>
+                    <td><%=listUsuarios[i].password%></td>
+                </tr>
+            <%}%>
+        </table>
+    </body>
+</html>
